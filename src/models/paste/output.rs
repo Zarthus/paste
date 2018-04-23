@@ -40,10 +40,10 @@ impl Output {
 
 #[derive(Debug, Serialize)]
 pub struct OutputFile {
-  pub id: SimpleUuid,
-  pub name: Option<String>,
+  id: SimpleUuid,
+  name: Option<String>,
   #[serde(skip_serializing_if = "Option::is_none")]
-  pub content: Option<Content>,
+  content: Option<Content>,
 }
 
 impl OutputFile {

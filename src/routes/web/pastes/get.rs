@@ -73,22 +73,6 @@ fn username_id(username: String, id: PasteId, config: State<Config>, user: Optio
     .map(|x| x.as_output_file(true))
     .collect::<result::Result<_, _>>()?;
 
-  for mut file in &mut files {
-    if file.name.as_ref().map(|x| x.ends_with(".md")) != Some(true) {
-      continue;
-    }
-    match file.content.take() {
-      Some(Content::Text(content)) => {
-        let mut html = String::new();
-        html::push_html(&mut html, Parser::new(&content));
-        let clean = ammonia::clean(&html);
-        file.content = Some(Content::Text(clean));
-        continue;
-      },
-      x => file.content = x,
-    }
-  }
-
   let output = Output::new(
     *id,
     author,

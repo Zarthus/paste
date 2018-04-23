@@ -40,7 +40,7 @@ mod utils;
 
 use rocket::response::NamedFile;
 
-use rocket_contrib::Template;
+use rocket_contrib::{Template, Engines};
 
 use std::env;
 
@@ -81,7 +81,9 @@ fn main() {
     .manage(database::init_pool())
     .manage(config)
     .attach(routes::web::LastPage::default())
-    .attach(Template::fairing())
+    .attach(Template::custom(|engines| {
+      engines.tera.register_filter("markdown", utils::tera::markdown);
+    }))
     .catch(errors![
       routes::bad_request,
       routes::forbidden,

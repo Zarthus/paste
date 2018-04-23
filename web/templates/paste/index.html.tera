@@ -69,7 +69,7 @@ untitled paste
   {% if file.content.format == "text" %}
     {% if file.name is ending_with(".md") %}
   <div class="content">
-    {{ file.content.value }}
+    {{ file.content.value | markdown | safe }}
   </div>
     {% else %}
   <pre>{{ file.content.value }}</pre>
