@@ -1,6 +1,7 @@
 #![feature(plugin, custom_derive)]
 #![plugin(rocket_codegen)]
 
+extern crate ammonia;
 extern crate base64;
 extern crate chrono;
 #[macro_use]
@@ -14,6 +15,7 @@ extern crate if_chain;
 #[macro_use]
 extern crate lazy_static;
 extern crate libflate;
+extern crate pulldown_cmark;
 extern crate reqwest;
 extern crate rocket_contrib;
 extern crate rocket;

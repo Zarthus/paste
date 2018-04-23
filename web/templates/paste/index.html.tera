@@ -67,7 +67,13 @@ untitled paste
   <h2 class="title">{{ file.name }}</h2>
   {% endif %}
   {% if file.content.format == "text" %}
+    {% if file.name is ending_with(".md") %}
+  <div class="content">
+    {{ file.content.value }}
+  </div>
+    {% else %}
   <pre>{{ file.content.value }}</pre>
+    {% endif %}
   {% else %}
     Binary content
   {% endif %}
