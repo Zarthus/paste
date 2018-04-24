@@ -1,0 +1,14 @@
+version: '3'
+services:
+  database:
+    image: postgres:alpine
+  web:
+    image: nginx:alpine
+    ports:
+      - "8000:8000"
+    depends_on:
+      - app
+  app:
+    build: .
+    depends_on:
+      - database
