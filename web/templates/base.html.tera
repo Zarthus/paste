@@ -14,7 +14,7 @@
   integrity="sha384-HjPW0ZPblirZh5ECpqKrlkzkFYwwRomtkQxUyBLWQr/pMY/9w+7K+F7zvkYwuDds"/>
 <script
   src="/static/js/style.js"
-  integrity="sha384-hvvioGxWAnnDhHpoKzYgw+qTQE3RsgghrXZ0NBH6TGuXANFCcan+HCTC9osu8Yqu"></script>
+  integrity="sha384-amHCu4fWGR769J5hEUFxRlgkS4vaXkX3c1ZnbzzTNc2Cs/BMKssLJCNq5ota3uT2"></script>
 <script
   defer
   src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
@@ -80,7 +80,7 @@
             <a class="navbar-item" href="/register">Register</a>
           {% endif %}
             <hr class="navbar-divider"/>
-            <a class="navbar-item" onclick="swapTheme()">Swap theme</a>
+            <a class="navbar-item" id="swap_theme">Swap theme</a>
           </div>
         </div>
       </div>

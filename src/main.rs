@@ -59,6 +59,11 @@ fn index() -> std::io::Result<NamedFile> {
 fn main() {
   dotenv::dotenv().ok();
 
+  if !sodiumoxide::init() {
+    println!("could not initialize libsodium");
+    return;
+  }
+
   let config_path = match env::args().nth(1) {
     Some(p) => p,
     None => {
@@ -79,6 +84,7 @@ fn main() {
     .manage(database::init_pool())
     .manage(config)
     .attach(routes::web::LastPage::default())
+    .attach(routes::web::fairings::csp::Csp)
     .attach(Template::fairing())
     .catch(errors![
       routes::bad_request,

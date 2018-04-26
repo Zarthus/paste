@@ -46,6 +46,8 @@ function swapTheme() {
 
 (function() {
   window.onload = function(e) {
+    document.getElementById('swap_theme').onclick = swapTheme;
+
     var style = this.localStorage.getItem("style");
     var title = style ? style : getPreferredStyleSheet();
     setActiveStyleSheet(title);

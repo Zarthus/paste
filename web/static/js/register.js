@@ -1,5 +1,5 @@
 (function() {
   if (localStorage.getItem('style') === 'dark') {
-    document.getElementById('recaptcha').setAttribute('data-theme', 'dark');
+    document.getElementById('submit_button').setAttribute('data-theme', 'dark');
   }
 })();

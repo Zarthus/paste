@@ -4,7 +4,7 @@ use database::schema::users;
 
 use rocket::{State, Outcome, Data};
 use rocket::fairing::{Fairing, Info, Kind};
-use rocket::http::{Cookie, Method, Status as HttpStatus};
+use rocket::http::{Cookie, Header, Method, Status as HttpStatus};
 use rocket::http::hyper::header::Location;
 use rocket::request::{self, Request, FromRequest};
 use rocket::response::{Responder, Response, Redirect};
@@ -23,6 +23,7 @@ use std::sync::RwLock;
 
 pub mod account;
 pub mod auth;
+pub mod fairings;
 pub mod index;
 pub mod pastes;
 pub mod static_files;
@@ -89,6 +90,30 @@ impl<'r> Responder<'r> for Rst {
   }
 }
 
+pub struct AddCsp<T>(T, Vec<String>);
+
+impl<T> AddCsp<T> {
+  pub fn new<I, S>(inner: T, directives: I) -> Self
+    where I: IntoIterator<Item = S>,
+          S: AsRef<str>,
+  {
+    AddCsp(inner, directives.into_iter().map(|x| x.as_ref().to_string()).collect())
+  }
+
+  pub fn none(inner: T) -> Self {
+    AddCsp(inner, Default::default())
+  }
+}
+
+impl<'r, T> Responder<'r> for AddCsp<T>
+  where T: Responder<'r>,
+{
+  fn respond_to(self, request: &Request) -> result::Result<Response<'r>, HttpStatus> {
+    let mut response = self.0.respond_to(request)?;
+    response.set_header(Header::new("Content-Security-Policy", self.1.join("; ")));
+    Ok(response)
+  }
+}
 
 #[derive(Debug, Default)]
 pub struct LastPage {
