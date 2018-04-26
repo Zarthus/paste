@@ -39,8 +39,8 @@ lazy_static! {
     let mut map = HashMap::with_capacity(9);
     map.insert("default-src".into(), "'self'".into());
     map.insert("object-src".into(), "'none'".into());
-    map.insert("script-src".into(), "'self' https://use.fontawesome.com/".into());
-    map.insert("style-src".into(), "'self' https://fonts.googleapis.com/".into());
+    map.insert("script-src".into(), "'self'".into());
+    map.insert("style-src".into(), "'self'".into());
     map.insert("font-src".into(), "'self'".into());
     map.insert("require-sri-for".into(), "script style".into());
     map.insert("frame-ancestors".into(), "'none'".into());

@@ -12,14 +12,21 @@
   rel="stylesheet"
   href="/static/css/style.css"
   integrity="sha384-HjPW0ZPblirZh5ECpqKrlkzkFYwwRomtkQxUyBLWQr/pMY/9w+7K+F7zvkYwuDds"/>
+<link
+  rel="stylesheet"
+  href="/static/css/fa/fa-svg-with-js.css"
+  integrity="sha384-r7mtNSsKf6BJzufTKw7ybkdPWROQzwbf2Ll3h0scl8Jlqh5wymHGtEdkce0IJXj5"/>
 <script
   src="/static/js/style.js"
   integrity="sha384-amHCu4fWGR769J5hEUFxRlgkS4vaXkX3c1ZnbzzTNc2Cs/BMKssLJCNq5ota3uT2"></script>
 <script
   defer
-  src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
-  integrity="sha384-NM4GHvd8vowDIel+2LNoo7mgwJN5e3Uj5WODAko2Eqg0LUP7eyZ+W1pjSfjbnYXt"
-  crossorigin="anonymous"></script>
+  src="/static/js/fa/fontawesome.min.js"
+  integrity="sha384-M2FSA4xMm1G9m4CNXM49UcDHeWcDZNucAlz1WVHxohug0Uw1K+IpUhp/Wjg0y6qG"></script>
+<script
+  defer
+  src="/static/js/fa/fa-solid.min.js"
+  integrity="sha384-Q7KAHqDd5trmfsv85beYZBsUmw0lsreFBQZfsEhzUtUn5HhpjVzwY0Aq4z8DY9sA"></script>
 <script
   defer
   src="/static/js/navbar.js"
