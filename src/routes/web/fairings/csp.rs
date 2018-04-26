@@ -41,8 +41,8 @@ lazy_static! {
     map.insert("object-src".into(), "'none'".into());
     map.insert("script-src".into(), "'self' https://use.fontawesome.com/".into());
     map.insert("style-src".into(), "'self' https://fonts.googleapis.com/".into());
-    map.insert("font-src".into(), "https://fonts.gstatic.com/".into());
-    // map.insert("require-sri-for".into(), "script style".into());
+    map.insert("font-src".into(), "'self'".into());
+    map.insert("require-sri-for".into(), "script style".into());
     map.insert("frame-ancestors".into(), "'none'".into());
     map.insert("base-uri".into(), "'none'".into());
     map.insert("block-all-mixed-content".into(), "".into());

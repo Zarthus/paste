@@ -6,8 +6,6 @@ use errors::*;
 use routes::web::{AddCsp, Rst, OptionalWebUser};
 use utils::{ReCaptcha, HashedPassword};
 
-use base64;
-
 use diesel;
 use diesel::dsl::count;
 use diesel::prelude::*;
@@ -19,8 +17,6 @@ use rocket::response::Redirect;
 
 use rocket_contrib::Template;
 
-use sodiumoxide::randombytes::randombytes;
-
 use unicode_segmentation::UnicodeSegmentation;
 
 use uuid::Uuid;
@@ -30,13 +26,11 @@ fn get(config: State<Config>, user: OptionalWebUser, mut cookies: Cookies) -> Ad
   if user.is_some() {
     return AddCsp::none(Rst::Redirect(Redirect::to("/")));
   }
-  let nonce = base64::encode_config(&randombytes(16), base64::URL_SAFE);
   let ctx = json!({
     "config": &*config,
     "error": cookies.get_private("error").map(|x| x.value().to_string()),
     "server_version": ::SERVER_VERSION,
     "resources_version": &*::RESOURCES_VERSION,
-    "nonce": &nonce,
   });
   cookies.remove_private(Cookie::named("error"));
   AddCsp::new(
@@ -45,7 +39,6 @@ fn get(config: State<Config>, user: OptionalWebUser, mut cookies: Cookies) -> Ad
       "frame-src https://www.google.com/recaptcha/",
       // https://github.com/google/recaptcha/issues/107 get with the times, google
       "style-src 'unsafe-inline'",
-      &format!("script-src 'nonce-{}' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/", nonce),
     ],
   )
 }

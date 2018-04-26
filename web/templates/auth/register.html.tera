@@ -3,12 +3,16 @@
 {% block head %}
 {{ super() }}
 <script
-  src="/static/js/recaptcha.js"
-  integrity="sha384-UmqycNv7k1UEk70BlrHIbZ2xFh3IxbbE0j4Vb+lPSaX2eFQFhpYDxsm2kSbUKaxY"></script>
+  src="/static/js/recaptcha_config.js"
+  integrity="sha384-njgtidAzRhDbhi+3PmRgC3BG02OWGhPn5l8dbGXtEVr1Au3kxoPWRmZxWd4ibcFd"></script>
+<script
+  async
+  src="/static/js/recaptcha_en.js"
+  integrity="sha384-RvijzoWDLMqA7wAnsSTVuJwLxZAJUahmcZEABFbwDzTAtscind3/g34eo6PfH+xy"></script>
 <script
   defer
   src="/static/js/register.js"
-  integrity="sha384-hxfSvm/sbD47VuDPvSJ75C1wY0aJ+WOANj1aqyVXnrH8h/L/yHywB2V65cbCtbKX"></script>
+  integrity="sha384-U2cd1s+wthquNZB8IU0Ls74sGRjCOWXCYC/bX2NwUFzeGaZXzjnQY7B3War5n5xq"></script>
 <script
   async
   src="/static/js/zxcvbn/zxcvbn.js"
@@ -149,16 +153,9 @@ Create a new account.
       <button
         id="submit_button"
         class="button is-link g-recaptcha"
-        nonce="{{ nonce }}"
-        data-nonce="{{ nonce }}"
         data-sitekey="{{ config.recaptcha.site_key }}"
         data-callback="submitRegistration">Submit</button>
     </div>
   </div>
 </form>
-<script nonce="{{ nonce }}">
-function submitRegistration() {
-  document.getElementById('registration_form').submit();
-}
-</script>
 {% endblock main %}
