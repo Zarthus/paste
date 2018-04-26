@@ -22,7 +22,7 @@
 <script
   defer
   src="/static/js/fa/fontawesome.min.js"
-  integrity="sha384-M2FSA4xMm1G9m4CNXM49UcDHeWcDZNucAlz1WVHxohug0Uw1K+IpUhp/Wjg0y6qG"></script>
+  integrity="sha384-ToZDZsEkArSFzXzP4dGORUA351sX+YxWrVJoLtIgPP6owhEfwlb1fX3Wbq1alrkm"></script>
 <script
   defer
   src="/static/js/fa/fa-solid.min.js"
