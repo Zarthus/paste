@@ -7,7 +7,7 @@
   integrity="sha384-njgtidAzRhDbhi+3PmRgC3BG02OWGhPn5l8dbGXtEVr1Au3kxoPWRmZxWd4ibcFd"></script>
 <script
   async
-  src="/static/js/recaptcha_en.js"
+  src="/static/js/recaptcha/recaptcha_en.js"
   integrity="sha384-RvijzoWDLMqA7wAnsSTVuJwLxZAJUahmcZEABFbwDzTAtscind3/g34eo6PfH+xy"></script>
 <script
   defer

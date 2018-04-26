@@ -17,7 +17,7 @@
   integrity="sha384-7gDLYK0oyPpfkc6E6VzcNFzEFGw6QTKMoof6r0lb0cWECaHXX+b2GGxhh0iItikh"/>
 <script
   defer
-  src="/static/js/highlight.pack.js"
+  src="/static/js/highlightjs/highlight.pack.js"
   integrity="sha384-JRRwtUx7H7KUP+6uHPOfXcRuX+cvNXZdsqluYW0tiu2BNVwdJCEQwOcCqhbmGysx"></script>
 <script
   defer
