@@ -177,8 +177,8 @@ about-title = About
 # $siteName (string) name of this paste instance
 about-blurb =
   .before = {$siteName} runs on
-  .paste = {-brand},
-  .after = an open-source project dedicated to making a sensible, modern pastebin that anyone can host.
+  .paste = {-brand}
+  .after = , an open-source project dedicated to making a sensible, modern pastebin that anyone can host.
 
 ## Log in
 
